@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Example Headers">
+      <UniqueIdentifier>{ed87ec65-dd0d-44ee-a37b-9d269aa184cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Example Source Files">
+      <UniqueIdentifier>{e5e40d43-68d8-4de7-8cb8-4de28797190a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Base Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{29b5baed-3895-47a2-a78d-aaf45a6989c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene Header Files">
+      <UniqueIdentifier>{e0efeabd-2890-473e-beb4-d01a8fd6cc31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene Source Files">
+      <UniqueIdentifier>{935930dd-f970-454b-8c32-e0fb8f9af4eb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GL\glew.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFW\glfw3.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GLFW\glfw3native.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FreeImage\FreeImage.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureLoader.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIMesh.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GUClock.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcballCamera.h">
+      <Filter>Example Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Example Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PrincipleAxes.h">
+      <Filter>Example Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="shader_setup.h">
+      <Filter>Base Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraFactory.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObjectFactory.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LightFactory.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stringHelp.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelFactory.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AIModel.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExampleGO.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPass.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionLight.h">
+      <Filter>Scene Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureLoader.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIMesh.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GUClock.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcballCamera.cpp">
+      <Filter>Example Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Example Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PrincipleAxes.cpp">
+      <Filter>Example Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shader_setup.cpp">
+      <Filter>Base Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraFactory.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObjectFactory.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LightFactory.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelFactory.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AIModel.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExampleGO.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectionLight.cpp">
+      <Filter>Scene Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="manifest.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Shaders\texture-directional.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\texture-directional.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\flatColour.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Assets\Shaders\flatColour.vert">
+      <Filter>Shaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

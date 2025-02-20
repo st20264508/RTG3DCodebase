@@ -1,0 +1,150 @@
+CAMERAS 4
+{
+TYPE: CAMERA
+NAME: CAM1
+POS:  5.0 5.0 0.0
+LOOKAT: 0.0 0.0 0.0
+FOV: 45.0
+NEAR: 0.5
+FAR 100.0
+}
+{
+TYPE: CAMERA
+NAME: CAM2
+POS:  -5.0 5.0 0.0
+LOOKAT: 0.0 0.0 0.0
+FOV: 45.0
+NEAR: 0.5
+FAR 100.0
+}
+{
+TYPE: CAMERA
+NAME: CAM3
+POS:  0.0 5.0 5.0
+LOOKAT: 0.0 0.0 0.0
+FOV: 45.0
+NEAR: 0.5
+FAR 100.0
+}
+{
+TYPE: CAMERA
+NAME: CAM4
+POS:  0.0 5.0 -5.0
+LOOKAT: 0.0 0.0 0.0
+FOV: 45.0
+NEAR: 0.5
+FAR 100.0
+}
+
+LIGHTS 5
+{
+TYPE: LIGHT
+NAME: WHITE
+POS: 0.0 5.0 0.0
+COL: 1.0 1.0 1.0
+AMB: 0.5 0.5 0.5
+}
+{
+TYPE: LIGHT
+NAME: RED
+POS: 5.0 5.0 0.0
+COL: 1.0 0.0 0.0
+AMB: 0.0 0.5 0.5
+}
+{
+TYPE: LIGHT
+NAME: GREEN
+POS: -5.0 5.0 0.0
+COL: 0.0 1.0 0.0
+AMB: 0.5 0.0 0.5
+}
+{
+TYPE: LIGHT
+NAME: BLUE
+POS: -5.0 5.0 5.0
+COL: 0.0 0.0 1.0
+AMB: 0.5 0.5 0.0
+}
+{
+TYPE: DIRECTION
+NAME: DIR
+POS: 0.0 5.0 0.0
+COL: 1.0 1.0 1.0
+AMB: 0.2 0.2 0.2
+DIR: 0.0 1.0 0.0
+}
+
+MODELS 2
+{
+TYPE: AI
+NAME: BEAST
+FILE: Assets\\beast\\beast.obj
+}
+{
+TYPE: AI
+NAME: SPHERE
+FILE: Assets\\gsphere.obj
+}
+
+TEXTURES 5
+{
+TYPE: FIF_BMP
+NAME: BEAST
+FILE: Assets\\beast\\beast_texture.bmp
+}
+{
+TYPE: FIF_JPEG
+NAME: ROCK
+FILE: Assets\\Textures\\Hodges_G_MountainRock1.jpg
+}
+{
+TYPE: FIF_PNG
+NAME: SHIP
+FILE: Assets\\Textures\\player1_ship.png
+}
+{
+TYPE: FIF_JPEG
+NAME: STARS
+FILE: Assets\\Textures\\stars.jpg
+}
+{
+TYPE: FIF_JPEG
+NAME: STARS2
+FILE: Assets\\Textures\\stars2.jpg
+}
+
+SHADERS 2
+{
+NAME: FLAT
+VERTFILE: Assets\\Shaders\\flatColour.vert
+FRAGFILE: Assets\\Shaders\\flatColour.frag
+}
+{
+NAME: TEXDIR
+VERTFILE: Assets\\Shaders\\texture-directional.vert
+FRAGFILE: Assets\\Shaders\\texture-directional.frag
+}
+
+GAMEOBJECTS 2
+{
+TYPE: EXAMPLE
+NAME: BEAST
+POS: 0.0 0.0 0.0
+ROT: 0.0 0.0 0.0
+SCALE: 1.0 1.0 1.0
+ROTINC: 0.0 0.1 0.001
+MODEL: BEAST
+TEXTURE: BEAST
+SHADER: TEXDIR
+}
+{
+TYPE: EXAMPLE
+NAME: PLANET
+POS: 4.0 4.0 4.0
+ROT: 0.0 0.0 0.0 
+SCALE: 1.0 1.0 1.0
+ROTINC: 0.0 0.2 0.0
+MODEL: SPHERE
+TEXTURE: ROCK
+SHADER: TEXDIR
+}
