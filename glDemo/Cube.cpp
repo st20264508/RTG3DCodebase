@@ -5,10 +5,12 @@ using namespace std;
 using namespace glm;
 
 
+//https://alg.manifoldapp.org/read/computer-graphics-and-multimedia/section/943760e8-f94a-4493-88e5-b7511cf43440
+
 // Example data for cube model
 
 // Packed vertex buffer for cube
-static float positionArray[] = {
+static float positionArray[] = { 
 
 	-1.0f, 1.0f, 1.0f, 1.0f,
 	-1.0f, 1.0f, -1.0f, 1.0f,
@@ -19,6 +21,16 @@ static float positionArray[] = {
 	-1.0f, -1.0f, -1.0f, 1.0f,
 	1.0f, -1.0f, -1.0f, 1.0f,
 	1.0f, -1.0f, 1.0f, 1.0f
+
+	/*-1.0f, 1.0f, 1.0f, 1.0f,
+	-1.0f, 1.0f, -1.0f, 1.0f,
+	1.0f, 1.0f, -1.0f, 1.0f,
+	1.0f, 1.0f, 1.0f, 1.0f,
+
+	-1.0f, -1.0f, 1.0f, 1.0f,
+	-1.0f, -1.0f, -1.0f, 1.0f,
+	1.0f, -1.0f, -1.0f, 1.0f,
+	1.0f, -1.0f, 1.0f, 1.0f*/
 };
 
 // Packed colour buffer for principle axes model
@@ -33,6 +45,16 @@ static float colourArray[] = {
 	0.0f, 1.0f, 1.0f, 1.0f,
 	0.0f, 0.0f, 0.0f, 1.0f,
 	0.0f, 0.0f, 0.0f, 1.0f
+
+	/*1.0f, 0.0f, 0.0f, 1.0f,
+	1.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 0.0f, 1.0f,
+	1.0f, 1.0f, 0.0f, 1.0f,
+
+	0.0f, 0.0f, 1.0f, 1.0f,
+	0.0f, 1.0f, 1.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f,
+	0.0f, 0.0f, 0.0f, 1.0f*/
 };
 
 
@@ -40,6 +62,30 @@ static float colourArray[] = {
 static unsigned int indexArray[] = {
 
 	// Top face
+	2, 1, 0,
+	3, 2, 0,
+
+	// Bottom face
+	5, 6, 4,
+	6, 7, 4,
+
+	// Right face
+	3, 7, 2,
+	7, 6, 2,
+
+	// Front face
+	0, 4, 3,
+	4, 7, 3,
+
+	// Left face
+	0, 1, 5,
+	4, 0, 5,
+
+	// Back face
+	2, 6, 1,
+	6, 5, 1
+
+	/*// Top face
 	2, 1, 0,  
 	3, 2, 0,
 
@@ -61,7 +107,7 @@ static unsigned int indexArray[] = {
 	
 	// Back face
 	2, 6, 1,
-	6, 5, 1
+	6, 5, 1*/
 };
 
 
@@ -77,7 +123,7 @@ Cube::Cube() {
 	glGenBuffers(1, &m_vertexBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, m_vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, 32 * sizeof(float), positionArray, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0);
+	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0); 
 	glEnableVertexAttribArray(0);
 
 	// setup vbo for colour attribute
