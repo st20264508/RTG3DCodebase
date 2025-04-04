@@ -140,7 +140,7 @@ int main()
 
 	g_cube = new Cube();
 
-	g_creatureMesh = new AIMesh(string("Assets\\beast\\beast.obj"));
+	/*g_creatureMesh = new AIMesh(string("Assets\\beast\\beast.obj"));
 	if (g_creatureMesh) {
 		g_creatureMesh->addTexture(string("Assets\\beast\\beast_texture.bmp"), FIF_BMP);
 	}
@@ -153,7 +153,7 @@ int main()
 	g_duckMesh = new AIMesh(string("Assets\\duck\\rubber_duck_toy_4k.obj")); //added duck here
 	if (g_duckMesh) {
 		g_duckMesh->addTexture(string("Assets\\duck\\rubber_duck_toy_diff_4k.jpg"), FIF_JPEG);
-	}
+	}*/
 
 	//
 	//Set up Scene class
@@ -299,7 +299,7 @@ void renderScene()
 		break;
 	}
 	case 2:
-		g_Scene->Render();
+		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
 	}
 
 }
@@ -344,17 +344,26 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 		// check which key was pressed...
 		switch (_key)
 		{
-		case GLFW_KEY_ESCAPE:
-			glfwSetWindowShouldClose(_window, true);
-			break;
+			case GLFW_KEY_ESCAPE:
+				glfwSetWindowShouldClose(_window, true);
+				break;
 
-		case GLFW_KEY_SPACE:
-			g_showing++;
-			g_showing = g_showing % g_NumExamples;
-
-		default:
-		{
-		}
+			case GLFW_KEY_SPACE:
+			{
+				g_showing++;
+				g_showing = g_showing % g_NumExamples;
+			}break;
+			case GLFW_KEY_1: 
+			{	//Add here to change the camera
+				g_Scene->changeCameraUp(); 
+			}break;
+			case GLFW_KEY_2:
+			{
+				
+			}
+			default:
+			{
+			}
 		}
 	}
 	else if (_action == GLFW_RELEASE) 

@@ -339,3 +339,15 @@ void Scene::Init()
 		(*it)->Init(this);
 	}
 }
+
+void Scene::changeCameraUp() //MAKE SO IT GOES UP AND SELECTS THE CAMERA AFTER THE CURRENT ONE
+{
+	for (list<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); ++it)
+	{
+		m_useCamera = (*it);
+	}
+}
+
+
+
+

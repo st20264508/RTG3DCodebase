@@ -47,6 +47,9 @@ public:
 	//initialise links between items in the scene
 	void Init();
 
+	//for changing cameras
+	void changeCameraUp();
+	
 protected:
 
 	//data structures containing pointers to all our stuff
