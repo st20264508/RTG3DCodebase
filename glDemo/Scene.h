@@ -47,9 +47,10 @@ public:
 	//initialise links between items in the scene
 	void Init();
 
-	//for changing cameras
-	void changeCameraUp();
+	//for changing cameras 
+	void changeCameraCycle();
 	
+	int camcycle = 0;   
 protected:
 
 	//data structures containing pointers to all our stuff
@@ -59,13 +60,15 @@ protected:
 	int m_numModels = 0;
 	int m_numTextures = 0;
 	int m_numShaders = 0;
-	std::list<Camera*>    m_Cameras;
+	//std::list<Camera*>    m_Cameras;
 	std::list<Light*>    m_Lights;
 	std::list<Model*>		m_Models;
 	std::list<Texture*>		m_Textures;
 	std::list<Shader*>		m_Shaders;
 	std::list<GameObject*> m_GameObjects;
 
+	std::vector<Camera*> m_Cameras;    //made the caneras into a vector instead of a list to use step through functionality that lists lack
+	 
 	Camera* m_useCamera = nullptr; //current main camera in use
 	int m_useCameraIndex = 0;
 	//TODO: pass down the same keyboard input from main so that we skip through all the cameras

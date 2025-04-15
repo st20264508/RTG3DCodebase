@@ -31,7 +31,7 @@ void Scene::Update(float _dt)
 	}
 
 	//update all cameras
-	for (list<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); it++)
+	for (vector<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); it++) 
 	{
 		(*it)->Tick(_dt);
 	}
@@ -65,7 +65,7 @@ GameObject* Scene::GetGameObject(string _GOName)
 
 Camera* Scene::GetCamera(string _camName)
 {
-	for (list<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); it++)
+	for (vector<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); it++) 
 	{
 		if ((*it)->GetName() == _camName)
 		{
@@ -192,7 +192,7 @@ void Scene::Load(ifstream& _file)
 		Camera* newCam = CameraFactory::makeNewCam(type);
 		newCam->Load(_file);
 
-		m_Cameras.push_back(newCam);
+		m_Cameras.push_back(newCam); 
 
 		//skip }
 		_file.ignore(256, '\n');
@@ -311,27 +311,30 @@ void Scene::Init()
 {
 	//initialise all cameras
 	//scene is passed down here to allow for linking of cameras to game objects
-	int count = 0;
-	for (list<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); ++it)
+	//int count = 0;
+	for (vector<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); ++it) 
 	{
 		(*it)->Init(100, 100, this);// TODO: set correct screen sizes here
 
 		//if a camera is called MAIN
 		//this will be the starting camera used
-		if ((*it)->GetName() == "MAIN")
+		/*if ((*it)->GetName() == "MAIN")
 		{
 			m_useCamera = (*it);
 			m_useCameraIndex = count;
 		}
-		count++;
+		count++;*/ 
 	}
 
 	//if no MAIN camera just use the first one
-	if (!m_useCamera)
+	if (!m_useCamera) 
 	{
-		m_useCamera = (*m_Cameras.begin());
-		m_useCameraIndex = 0;
-	}
+		m_useCamera = m_Cameras.at(camcycle);    
+		cout << "camname = " << m_useCamera->GetName() << "\n"; 
+		cout << "camsize = " << m_Cameras.size() << "\n";
+		cout << "camcyle = " << camcycle << "\n"; 
+		//m_useCameraIndex = 0; 
+	} 
 
 	//set up links between everything and GameObjects
 	for (list<GameObject*>::iterator it = m_GameObjects.begin(); it != m_GameObjects.end(); it++)
@@ -340,12 +343,22 @@ void Scene::Init()
 	}
 }
 
-void Scene::changeCameraUp() //MAKE SO IT GOES UP AND SELECTS THE CAMERA AFTER THE CURRENT ONE
+void Scene::changeCameraCycle() //works for cycle through cameras (bind set in main), except for the first press ASK IN CLASS
 {
-	for (list<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); ++it)
+	if (camcycle >= m_Cameras.size())   
 	{
-		m_useCamera = (*it);
+		camcycle = 0; 
+		m_useCamera = m_Cameras.at(camcycle);  
+
+		cout << "camname = " << m_useCamera->GetName() << "\n";
+		cout << "camsize = " << m_Cameras.size() << "\n";
+		cout << "camcyle = " << camcycle << "\n";
 	}
+	
+	m_useCamera = m_Cameras.at(camcycle++); 
+	cout << "camname = " << m_useCamera->GetName() << "\n";
+	cout << "camsize = " << m_Cameras.size() << "\n";
+	cout << "camcyle = " << camcycle << "\n";
 }
 
 

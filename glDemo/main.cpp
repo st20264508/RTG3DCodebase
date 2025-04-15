@@ -228,7 +228,7 @@ void renderScene()
 		g_principleAxes->render();
 	}
 
-	switch (g_showing)
+	/*switch (g_showing)
 	{
 	case 0:
 	{
@@ -300,8 +300,9 @@ void renderScene()
 	}
 	case 2:
 		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
-	}
+	}*/
 
+	g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
 }
 
 
@@ -355,12 +356,27 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 			}break;
 			case GLFW_KEY_1: 
 			{	//Add here to change the camera
-				g_Scene->changeCameraUp(); 
+				g_Scene->changeCameraCycle();
 			}break;
 			case GLFW_KEY_2:
 			{
 				
-			}
+			}break;
+			case GLFW_KEY_3:
+			{
+				
+				 
+			}break;
+			case GLFW_KEY_4: 
+			{
+				
+
+			}break;
+			case GLFW_KEY_5:
+			{
+				
+
+			}break;
 			default:
 			{
 			}
