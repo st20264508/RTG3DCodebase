@@ -1,5 +1,6 @@
 
 #include "ArcballCamera.h"
+#include <stringHelp.h>
 
 using namespace std;
 using namespace glm;
@@ -35,14 +36,15 @@ void ArcballCamera::calculateDerivedValues() {
 // initialise camera parameters so it is placed at the origin looking down the -z axis (for a right-handed camera) or +z axis (for a left-handed camera)
 ArcballCamera::ArcballCamera() {
 
-	m_theta = 0.0f;
+	m_type = "ARCBALLCAMERA";
+	/*m_theta = 0.0f;
 	m_phi = 0.0f;
 	m_radius = 15.0f;
 
 	m_fovY = 55.0f;
 	m_aspect = 1.0f;
 	m_nearPlane = 0.1f;
-	m_farPlane = 500.0f;
+	m_farPlane = 500.0f;*/
 
 	//F = ViewFrustum(55.0f, 1.0f, 0.1f, 500.0f);
 
@@ -71,6 +73,17 @@ ArcballCamera::ArcballCamera(float _theta, float _phi, float _radius, float _fov
 	//F.calculateWorldCoordPlanes(C, R);
 }
 
+void ArcballCamera::Load(ifstream& _file)
+{
+	StringHelp::String(_file, "NAME", m_name);
+	StringHelp::Float(_file, "THETA", m_theta);
+	StringHelp::Float(_file, "PHI", m_phi);
+	StringHelp::Float(_file, "RADIUS", m_radius);
+	StringHelp::Float(_file, "FOVY", m_fovY);
+	StringHelp::Float(_file, "ASPECT", m_aspect);
+	StringHelp::Float(_file, "NEAR", m_nearPlane); 
+	StringHelp::Float(_file, "FAR", m_farPlane);
+}
 
 #pragma region Accessor methods for stored values
 

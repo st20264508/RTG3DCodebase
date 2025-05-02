@@ -228,7 +228,7 @@ void renderScene()
 		g_principleAxes->render();
 	}
 
-	/*switch (g_showing)
+	switch (g_showing)
 	{
 	case 0:
 	{
@@ -300,9 +300,9 @@ void renderScene()
 	}
 	case 2:
 		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
-	}*/
+	}
 
-	g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
+	//g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
 }
 
 

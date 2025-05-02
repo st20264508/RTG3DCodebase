@@ -1,13 +1,13 @@
 #pragma once
 
 #include "core.h"
-
+#include "Camera.h"
 // Model an arcball / pivot camera looking at the origin (0, 0, 0).  
 // The camera by default looks down the negative z axis (using a right-handed coordinate system).  
 // Therefore 'forwards' is along the -z axis.  The camera is actually right/left handed agnostic.  
 // The encapsulated frustum however needs to know the differences for the projection matrix and frustum plane calculations
 
-class ArcballCamera {
+class ArcballCamera: public Camera { 
 
 private:
 
@@ -85,7 +85,8 @@ public:
 
 	void setFarPlaneDistance(float _farPlaneDistance);
 	
-	
+	virtual void Load(ifstream& _file); 
+
 	// Accessor methods for derived values
 
 	//glm::vec4 getPosition(); // return the camera location in world coordinate space.  The radius of the camera's position in spherical coordinates is the l2 norm of the returned position vector
@@ -96,4 +97,6 @@ public:
 
 	glm::mat4 projectionTransform(); // return a const reference the projection transform for the camera.  This is a pass-through method and calls projectionMatrix on the encapsulated ViewFrustum
 
+	string m_name; 
+	string m_type; 
 };
