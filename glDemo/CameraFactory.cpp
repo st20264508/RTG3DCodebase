@@ -11,10 +11,12 @@ Camera* CameraFactory::makeNewCam(string _type)
 	if (_type == "CAMERA")
 	{
 		return new Camera();
+		cout << "cam factory normal cam test" << "\n";
 	}
 	else if (_type == "ARCBALLCAMERA")
 	{
 		return new ArcballCamera(); 
+		cout << "cam factory arcball test" << "\n";
 	}
 	else
 	{

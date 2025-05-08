@@ -314,8 +314,14 @@ void Scene::Init()
 	//int count = 0;
 	for (vector<Camera*>::iterator it = m_Cameras.begin(); it != m_Cameras.end(); ++it) 
 	{
-		(*it)->Init(100, 100, this);// TODO: set correct screen sizes here
-
+		if ((*it)->GetType() == "CAMERA")
+		{
+			(*it)->Init(100, 100, this);// TODO: set correct screen sizes here
+		}
+		else if ((*it)->GetType() == "ARCBALLCAMERA")
+		{
+			cout << "arcball cam type found " << "\n";
+		}
 		//if a camera is called MAIN
 		//this will be the starting camera used
 		/*if ((*it)->GetName() == "MAIN")

@@ -140,7 +140,7 @@ int main()
 
 	g_cube = new Cube();
 
-	/*g_creatureMesh = new AIMesh(string("Assets\\beast\\beast.obj"));
+	g_creatureMesh = new AIMesh(string("Assets\\beast\\beast.obj"));
 	if (g_creatureMesh) {
 		g_creatureMesh->addTexture(string("Assets\\beast\\beast_texture.bmp"), FIF_BMP);
 	}
@@ -153,7 +153,7 @@ int main()
 	g_duckMesh = new AIMesh(string("Assets\\duck\\rubber_duck_toy_4k.obj")); //added duck here
 	if (g_duckMesh) {
 		g_duckMesh->addTexture(string("Assets\\duck\\rubber_duck_toy_diff_4k.jpg"), FIF_JPEG);
-	}*/
+	}
 
 	//
 	//Set up Scene class
