@@ -75,6 +75,7 @@ ArcballCamera::ArcballCamera(float _theta, float _phi, float _radius, float _fov
 
 void ArcballCamera::Load(ifstream& _file)
 {
+	//StringHelp::String(_file, "TYPE", m_type);
 	StringHelp::String(_file, "NAME", m_name);
 	StringHelp::Float(_file, "THETA", m_theta);
 	StringHelp::Float(_file, "PHI", m_phi);
@@ -82,7 +83,20 @@ void ArcballCamera::Load(ifstream& _file)
 	StringHelp::Float(_file, "FOVY", m_fovY);
 	StringHelp::Float(_file, "ASPECT", m_aspect);
 	StringHelp::Float(_file, "NEAR", m_nearPlane); 
-	StringHelp::Float(_file, "FAR", m_farPlane);
+	StringHelp::Float(_file, "FAR", m_farPlane); 
+
+	m_pos.x = 0.0f; m_pos.y = 5.0f; m_pos.z = 5.0f; //might not need, fixed loading errors
+
+	/*
+	TYPE: ARCBALLCAMERA
+NAME: CAM5ARC
+THETA: 0.0 
+PHI: 0.0
+RADIUS: 1.98595
+FOVY: 55.0
+ASPECT: 1.0
+NEAR: 0.1
+FAR: 500.0*/
 }
 
 #pragma region Accessor methods for stored values
