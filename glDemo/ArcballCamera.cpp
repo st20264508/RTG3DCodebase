@@ -47,11 +47,13 @@ ArcballCamera::ArcballCamera() {
 	m_farPlane = 500.0f;*/
 
 	//F = ViewFrustum(55.0f, 1.0f, 0.1f, 500.0f);
-
+	
 	// calculate derived values
-	calculateDerivedValues();
+	//calculateDerivedValues();
 	//F.calculateWorldCoordPlanes(C, R);
 }
+
+
 
 
 // create a camera with orientation <theta, phi> representing Euler angles specified in degrees and Euclidean distance 'init_radius' from the origin.  The frustum / viewplane projection coefficients are defined in init_fovy, specified in degrees spanning the entire vertical field of view angle, init_aspect (w/h ratio), init_nearPlane and init_farPlane.  If init_farPlane = 0.0 (as determined by equalf) then the resulting frustum represents an infinite perspective projection.  This is the default
@@ -71,6 +73,11 @@ ArcballCamera::ArcballCamera(float _theta, float _phi, float _radius, float _fov
 	// calculate derived values
 	calculateDerivedValues();
 	//F.calculateWorldCoordPlanes(C, R);
+}
+
+void ArcballCamera::Init()
+{
+	calculateDerivedValues(); 
 }
 
 void ArcballCamera::Load(ifstream& _file)

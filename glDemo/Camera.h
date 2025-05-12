@@ -21,7 +21,7 @@ class Scene;
 class Camera
 {
 public:
-	Camera();
+	Camera(); 
 	virtual ~Camera();
 
 	//initialise the camera _width _height
