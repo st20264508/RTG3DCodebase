@@ -67,6 +67,7 @@ bool sR;
 bool dR;*/
 
 // Function prototypes
+void cameraController();
 void renderScene();
 void updateScene();
 void resizeWindow(GLFWwindow* _window, int _width, int _height);
@@ -198,7 +199,7 @@ int main()
 		char timingString[256];
 		sprintf_s(timingString, 256, "CIS5013: Average fps: %.0f; Average spf: %f", g_gameClock->averageFPS(), g_gameClock->averageSPF() / 1000.0f);
 		glfwSetWindowTitle(window, timingString);
-		cout << wP; 
+		
 	}
 
 	glfwTerminate();
@@ -330,6 +331,7 @@ void updateScene()
 		tDelta = (float)g_gameClock->gameTimeDelta();
 	}
 
+	cameraController(); 
 	g_Scene->Update(tDelta);
 }
 
@@ -374,24 +376,23 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 			}break;
 			case GLFW_KEY_W: 
 			{
-				//g_Scene->moveCamera(); 
 				wP = true;
-				cout << "w pressed";
+				cout << "w pressed" << "\n";
 			}break;
 			case GLFW_KEY_A:   
 			{
 				aP = true;
-				g_Scene->moveCamera(); 
+				cout << "a pressed" << "\n";
 			}break;
 			case GLFW_KEY_S:  
 			{
 				sP = true;
-
+				cout << "s pressed" << "\n";
 			}break;
 			case GLFW_KEY_D: 
 			{
 				dP = true;
-
+				cout << "d pressed" << "\n";
 			}break;
 			default:
 			{
@@ -420,21 +421,22 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 		{
 			//g_Scene->moveCamera();
 			wP = false;
+			cout << "w released" << "\n";
 		}break;
 		case GLFW_KEY_A: 
 		{
 			aP = false;
-
+			cout << "a released" << "\n";
 		}break;
 		case GLFW_KEY_S: 
 		{
 			sP = false;
-
+			cout << "s released" << "\n";
 		}break;
 		case GLFW_KEY_D: 
 		{
 			dP = false;
-
+			cout << "d released" << "\n";
 		}break;
 		default:
 		{
@@ -446,9 +448,21 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 
 void cameraController() 
 {
-	while (wP = false)  
+	if (wP)
+	{
+		g_Scene->moveCamera(0);
+	}
+	if (aP)
+	{
+		g_Scene->moveCamera(1);
+	}
+	if (sP)
+	{
+		g_Scene->moveCamera(2); 
+	}
+	if (dP)
 	{ 
-		g_Scene->moveCamera();
+		g_Scene->moveCamera(3);  
 	}
 }
 

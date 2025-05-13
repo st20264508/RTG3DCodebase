@@ -50,7 +50,10 @@ public:
 	//for changing cameras 
 	void changeCameraCycle();
 	
-	void moveCamera();
+	//moves camera based on input 0w 1a 2s 3d
+	void moveCamera(int movekey);  
+
+	glm::vec3 campos;
 
 	int camcycle = 0;   
 protected:
@@ -73,6 +76,8 @@ protected:
 	 
 	Camera* m_useCamera = nullptr; //current main camera in use
 	int m_useCameraIndex = 0;
+
+	
 	//TODO: pass down the same keyboard input from main so that we skip through all the cameras
 };
 

@@ -11,6 +11,8 @@
 #include "GameObjectFactory.h"
 #include <assert.h>
 
+
+
 Scene::Scene()
 {
 }
@@ -368,14 +370,35 @@ void Scene::changeCameraCycle() //works for cycle through cameras (bind set in m
 	cout << "camcyle = " << camcycle << "\n";
 }
 
-void Scene::moveCamera()
+void Scene::moveCamera(int mk)  
 {
-	vec3 campos;
-	campos = m_useCamera->GetPos();
+	float speed = 0.1;
+	campos = m_useCamera->GetPos();    
+	switch (mk)
+	{
+	case 0:
+	{
+		campos.x -= speed;
+	}break;
+	case 1:
+	{
+		campos.z -= speed;
+	}break;
+	case 2:
+	{
+		campos.x += speed;  
+	}break;
+	case 3:
+	{
+		campos.z += speed;  
+	}break;
+	default:
+	{
 
-	campos.x++;  
+	}
+	}
 
-	m_useCamera->SetPos(campos);
+	m_useCamera->SetPos(campos); 
 }
 
 
