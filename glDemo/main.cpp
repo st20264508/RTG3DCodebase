@@ -25,7 +25,7 @@ double				g_prevMouseX, g_prevMouseY;
 
 // Global Example objects
 // shouldn't really be anything in here for the final submission
-/*
+
 ArcballCamera* g_mainCamera = nullptr;
 CGPrincipleAxes* g_principleAxes = nullptr;
 Cube* g_cube = nullptr;
@@ -43,7 +43,7 @@ float g_beastRotation = 0.0f;
 AIMesh* g_planetMesh = nullptr;
 AIMesh* g_duckMesh = nullptr;
 
-*/
+
 int g_showing = 0;
 int g_NumExamples = 3;
 
@@ -133,10 +133,10 @@ int main()
 	// Setup the Example Objects
 	//
 
-	//g_texDirLightShader = setupShaders(string("Assets\\Shaders\\texture-directional.vert"), string("Assets\\Shaders\\texture-directional.frag"));
-	//g_flatColourShader = setupShaders(string("Assets\\Shaders\\flatColour.vert"), string("Assets\\Shaders\\flatColour.frag"));
+	g_texDirLightShader = setupShaders(string("Assets\\Shaders\\texture-directional.vert"), string("Assets\\Shaders\\texture-directional.frag"));
+	g_flatColourShader = setupShaders(string("Assets\\Shaders\\flatColour.vert"), string("Assets\\Shaders\\flatColour.frag"));
 
-	/*g_mainCamera = new ArcballCamera(0.0f, 0.0f, 1.98595f, 55.0f, 1.0f, 0.1f, 500.0f);
+	g_mainCamera = new ArcballCamera(0.0f, 0.0f, 1.98595f, 55.0f, 1.0f, 0.1f, 500.0f);
 
 	g_principleAxes = new CGPrincipleAxes();
 
@@ -156,7 +156,7 @@ int main()
 	if (g_duckMesh) {
 		g_duckMesh->addTexture(string("Assets\\duck\\rubber_duck_toy_diff_4k.jpg"), FIF_JPEG);
 	}
-	*/
+	
 
 	//
 	//Set up Scene class
@@ -208,12 +208,12 @@ void renderScene()
 {
 	//Clear the rendering window
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	/*
+	
 	mat4 cameraTransform = g_mainCamera->projectionTransform() * g_mainCamera->viewTransform(); 
 
 	mat4 cameraProjection = g_mainCamera->projectionTransform(); 
 	mat4 cameraView = g_mainCamera->viewTransform() * translate(identity<mat4>(), -g_beastPos); 
-	///*
+	
 #// Render principle axes - no modelling transforms so just use cameraTransform
 	if (true) 
 	{
@@ -230,7 +230,7 @@ void renderScene()
 
 		g_principleAxes->render(); 
 	}
-	/*
+	
 	switch (g_showing)
 	{
 	case 0:
@@ -304,8 +304,8 @@ void renderScene()
 	case 2:
 		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
 	}
-	*/
-	g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
+	
+	//g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
 }
 
 
@@ -433,7 +433,7 @@ void mouseButtonHandler(GLFWwindow* _window, int _button, int _action, int _mods
 
 void mouseScrollHandler(GLFWwindow* _window, double _xoffset, double _yoffset) {
 
-	if (g_mainCamera) 
+	if (g_mainCamera)
 	{
 		if (_yoffset < 0.0)
 			g_mainCamera->scaleRadius(1.1f);

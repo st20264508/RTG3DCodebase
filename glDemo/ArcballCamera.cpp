@@ -85,24 +85,27 @@ void ArcballCamera::Init()
 	calculateDerivedValues(); 
 }
 
-void ArcballCamera::Tick(float _dt)
+/*void ArcballCamera::Tick(float _dt)
 {
 	calculateDerivedValues();
-}
+}*/
 
 void ArcballCamera::Load(ifstream& _file)
 {
 	//StringHelp::String(_file, "TYPE", m_type);
 	StringHelp::String(_file, "NAME", m_name);
+	StringHelp::Float3(_file, "POS", m_pos.x, m_pos.y, m_pos.z); 
+	StringHelp::Float3(_file, "LOOKAT", m_lookAt.x, m_lookAt.y, m_lookAt.z); 
 	StringHelp::Float(_file, "THETA", m_theta);
 	StringHelp::Float(_file, "PHI", m_phi);
 	StringHelp::Float(_file, "RADIUS", m_radius);
 	StringHelp::Float(_file, "FOVY", m_fovY);
+	StringHelp::Float(_file, "FOV", m_fov); 
 	StringHelp::Float(_file, "ASPECT", m_aspect);
 	StringHelp::Float(_file, "NEAR", m_nearPlane); 
 	StringHelp::Float(_file, "FAR", m_farPlane); 
 
-	//m_pos.x = 0.0f; m_pos.y = 5.0f; m_pos.z = 5.0f; //might not need, fixed loading errors
+	//m_pos.x = -5.0f; m_pos.y = 5.0f; m_pos.z = 0.0f; //might not need, fixed loading errors
 
 	
 	/*
