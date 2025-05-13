@@ -55,6 +55,11 @@ void Camera::Load(ifstream& _file)
 	StringHelp::Float(_file, "FAR", m_far);
 }
 
+void Camera::SetPos(glm::vec3 newpos)
+{
+	m_pos = newpos; 
+}
+
 //set the base render values for this camera in the shaders
 void Camera::SetRenderValues(unsigned int _prog)
 {

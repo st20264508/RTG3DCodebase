@@ -44,6 +44,7 @@ public:
 	glm::mat4 GetView() { return m_viewMatrix; }
 
 	glm::vec3 GetPos() { return m_pos; }
+	void SetPos(glm::vec3 newpos); 
 
 	float GetFOV() { return m_fov; }
 	float GetNear() { return m_near; }

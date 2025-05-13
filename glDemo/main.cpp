@@ -56,6 +56,15 @@ const unsigned int g_initHeight = 512;
 
 #pragma endregion
 
+//wasd bools
+bool wP;
+bool aP;
+bool sP;
+bool dP;
+/*bool wR;
+bool aR;
+bool sR;
+bool dR;*/
 
 // Function prototypes
 void renderScene();
@@ -189,6 +198,7 @@ int main()
 		char timingString[256];
 		sprintf_s(timingString, 256, "CIS5013: Average fps: %.0f; Average spf: %f", g_gameClock->averageFPS(), g_gameClock->averageSPF() / 1000.0f);
 		glfwSetWindowTitle(window, timingString);
+		cout << wP; 
 	}
 
 	glfwTerminate();
@@ -230,7 +240,7 @@ void renderScene()
 
 		g_principleAxes->render(); 
 	}
-	
+	/*
 	switch (g_showing)
 	{
 	case 0:
@@ -303,9 +313,9 @@ void renderScene()
 	}
 	case 2:
 		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
-	}
+	}*/
 	
-	//g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
+	g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
 }
 
 
@@ -340,6 +350,7 @@ void resizeWindow(GLFWwindow* _window, int _width, int _height)
 }
 
 
+
 // Function to call to handle keyboard input
 void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, int _mods)
 {
@@ -361,23 +372,25 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 			{	//Add here to change the camera
 				g_Scene->changeCameraCycle();
 			}break;
-			case GLFW_KEY_2:
+			case GLFW_KEY_W: 
 			{
-				
+				//g_Scene->moveCamera(); 
+				wP = true;
+				cout << "w pressed";
 			}break;
-			case GLFW_KEY_3:
+			case GLFW_KEY_A:   
 			{
-				
-				 
+				aP = true;
+				g_Scene->moveCamera(); 
 			}break;
-			case GLFW_KEY_4: 
+			case GLFW_KEY_S:  
 			{
-				
+				sP = true;
 
 			}break;
-			case GLFW_KEY_5:
+			case GLFW_KEY_D: 
 			{
-				
+				dP = true;
 
 			}break;
 			default:
@@ -390,6 +403,39 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 		// handle key release events
 		switch (_key)
 		{
+		case GLFW_KEY_ESCAPE:
+			//glfwSetWindowShouldClose(_window, true);
+			break;
+
+		case GLFW_KEY_SPACE:
+		{
+			//g_showing++;
+			//g_showing = g_showing % g_NumExamples;
+		}break;
+		case GLFW_KEY_1:
+		{	//Add here to change the camera
+			//g_Scene->changeCameraCycle();
+		}break;
+		case GLFW_KEY_W: 
+		{
+			//g_Scene->moveCamera();
+			wP = false;
+		}break;
+		case GLFW_KEY_A: 
+		{
+			aP = false;
+
+		}break;
+		case GLFW_KEY_S: 
+		{
+			sP = false;
+
+		}break;
+		case GLFW_KEY_D: 
+		{
+			dP = false;
+
+		}break;
 		default:
 		{
 		}
@@ -397,6 +443,14 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 	}
 }
 
+
+void cameraController() 
+{
+	while (wP = false)  
+	{ 
+		g_Scene->moveCamera();
+	}
+}
 
 void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos) 
 {

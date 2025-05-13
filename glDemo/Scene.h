@@ -50,6 +50,8 @@ public:
 	//for changing cameras 
 	void changeCameraCycle();
 	
+	void moveCamera();
+
 	int camcycle = 0;   
 protected:
 

@@ -368,6 +368,16 @@ void Scene::changeCameraCycle() //works for cycle through cameras (bind set in m
 	cout << "camcyle = " << camcycle << "\n";
 }
 
+void Scene::moveCamera()
+{
+	vec3 campos;
+	campos = m_useCamera->GetPos();
+
+	campos.x++;  
+
+	m_useCamera->SetPos(campos);
+}
+
 
 
 

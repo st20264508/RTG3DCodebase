@@ -54,6 +54,8 @@ public:
 	//tick for the arcball camera called inside the scene.cpp update
 	//virtual void Tick(float _dt); 
 
+	//virtual void SetRenderValues(unsigned int _prog); 
+
 	// Accessor methods for stored properties
 
 	// return the pivot rotation around the x axis (theta) in degrees
