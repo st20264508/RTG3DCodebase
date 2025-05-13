@@ -40,11 +40,11 @@ TYPE: ARCBALLCAMERA
 NAME: CAM5ARC
 THETA: 0.0 
 PHI: 0.0
-RADIUS: 1.98595
+RADIUS: 15.0
 FOVY: 55.0
 ASPECT: 1.0
-NEAR: 0.1
-FAR: 500.0
+NEAR: 0.5
+FAR: 100.0
 }
 
 LIGHTS 5
@@ -85,7 +85,7 @@ AMB: 0.2 0.2 0.2
 DIR: 0.0 1.0 0.0
 }
 
-MODELS 3
+MODELS 5
 {
 TYPE: AI
 NAME: BEAST
@@ -101,8 +101,18 @@ TYPE: AI
 NAME: DUCK
 FILE: Assets\\duck\\rubber_duck_toy_4k.obj
 }
+{
+TYPE: AI
+NAME: PERSON
+FILE: Assets\\FinalBaseMesh.obj
+}
+{
+TYPE: AI
+NAME: FLAT
+FILE: Assets\\plane.obj
+}
 
-TEXTURES 6
+TEXTURES 8
 {
 TYPE: FIF_BMP
 NAME: BEAST
@@ -133,6 +143,16 @@ TYPE: FIF_JPEG
 NAME: DUCK
 FILE: Assets\\duck\\rubber_duck_toy_diff_4k.jpg
 }
+{
+TYPE: FIF_BMP
+NAME: RED
+FILE: Assets\\Textures\\red.bmp
+}
+{
+TYPE: FIF_JPEG
+NAME: MUD
+FILE: Assets\\Textures\\mud.jpg
+}
 
 SHADERS 2
 {
@@ -146,7 +166,7 @@ VERTFILE: Assets\\Shaders\\texture-directional.vert
 FRAGFILE: Assets\\Shaders\\texture-directional.frag
 }
 
-GAMEOBJECTS 3
+GAMEOBJECTS 5
 {
 TYPE: EXAMPLE
 NAME: BEAST
@@ -178,5 +198,27 @@ SCALE: 1.0 1.0 1.0
 ROTINC: 0.0 0.2 0.0
 MODEL: DUCK
 TEXTURE: DUCK
+SHADER: TEXDIR
+}
+{
+TYPE: EXAMPLE
+NAME: PERSON
+POS: 0.0 0.0 1.0
+ROT: 0.0 0.0 0.0
+SCALE: 0.1 0.1 0.1
+ROTINC: 0.0 0.1 0.001
+MODEL: PERSON
+TEXTURE: BEAST
+SHADER: TEXDIR
+}
+{
+TYPE: EXAMPLE
+NAME: GROUND
+POS: -2.5 -2.0 5.0
+ROT: 0.0 0.0 0.0
+SCALE: 1.0 1.0 1.0
+ROTINC: 0.0 0.0 0.0
+MODEL: FLAT
+TEXTURE: MUD
 SHADER: TEXDIR
 }

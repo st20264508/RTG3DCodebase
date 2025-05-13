@@ -24,6 +24,11 @@ void ArcballCamera::calculateDerivedValues() {
 	// calculate view and projection transform matrices
 	m_viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -m_radius)) * glm::eulerAngleX(-theta_) * glm::eulerAngleY(-phi_);
 	m_projectionMatrix = glm::perspective(glm::radians<float>(m_fovY), m_aspect, m_nearPlane, m_farPlane);
+
+	/*mat4 cameraTransform = g_mainCamera->projectionTransform() * g_mainCamera->viewTransform();
+
+	mat4 cameraProjection = g_mainCamera->projectionTransform();
+	mat4 cameraView = g_mainCamera->viewTransform() * translate(identity<mat4>(), -g_beastPos);*/
 }
 
 
@@ -80,6 +85,11 @@ void ArcballCamera::Init()
 	calculateDerivedValues(); 
 }
 
+void ArcballCamera::Tick(float _dt)
+{
+	calculateDerivedValues();
+}
+
 void ArcballCamera::Load(ifstream& _file)
 {
 	//StringHelp::String(_file, "TYPE", m_type);
@@ -92,8 +102,9 @@ void ArcballCamera::Load(ifstream& _file)
 	StringHelp::Float(_file, "NEAR", m_nearPlane); 
 	StringHelp::Float(_file, "FAR", m_farPlane); 
 
-	m_pos.x = 0.0f; m_pos.y = 5.0f; m_pos.z = 5.0f; //might not need, fixed loading errors
+	//m_pos.x = 0.0f; m_pos.y = 5.0f; m_pos.z = 5.0f; //might not need, fixed loading errors
 
+	
 	/*
 	TYPE: ARCBALLCAMERA
 NAME: CAM5ARC

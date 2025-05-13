@@ -28,6 +28,7 @@ public:
 	//scene maybe needed for more involved cameras to connect to relvant GOs and lights/shaders etc
 	//TODO move _w and _h to tick for cameras so apsect ratio can be updated if we change the size of the window
 	virtual void Init(float _w, float _h, Scene* _scene);
+	virtual void Init(); 
 
 	//tick this camera
 	//TODO: possibly pass keyboard / mouse stuff down here for player controls?

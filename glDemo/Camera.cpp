@@ -32,6 +32,11 @@ void Camera::Init(float _screenWidth, float _screenHeight, Scene* _scene)
 	m_projectionMatrix = glm::perspective(glm::radians(m_fov), aspect_ratio, m_near, m_far);
 }
 
+void Camera::Init()
+{
+	//need to call the arcball camera version of init in the init in the scene.cpp
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 // Update() - 
 /////////////////////////////////////////////////////////////////////////////////////

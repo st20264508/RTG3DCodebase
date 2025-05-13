@@ -48,7 +48,11 @@ public:
 	ArcballCamera(float _theta, float _phi, float _radius, float _fovy, float _aspect, float _nearPlane, float _farPlane);
 	// create a camera with orientation <theta, phi> representing Euler angles specified in degrees and Euclidean distance 'init_radius' from the origin.  The frustum / viewplane projection coefficients are defined in init_fovy, specified in degrees spanning the entire vertical field of view angle, init_aspect (w/h ratio), init_nearPlane and init_farPlane.  If init_farPlane = 0.0 (as determined by equalf) then the resulting frustum represents an infinite perspective projection.  This is the default
 
-	void Init(); 
+	//Init for the arcball camera called inside the scene.cpp init
+	virtual void Init();  
+
+	//tick for the arcball camera called inside the scene.cpp update
+	virtual void Tick(float _dt); 
 
 	// Accessor methods for stored properties
 
@@ -98,6 +102,6 @@ public:
 
 	glm::mat4 projectionTransform(); // return a const reference the projection transform for the camera.  This is a pass-through method and calls projectionMatrix on the encapsulated ViewFrustum
 
-	string m_name; 
-	string m_type; 
+	//string m_name; 
+	//string m_type; 
 };

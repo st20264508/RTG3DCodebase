@@ -320,7 +320,7 @@ void Scene::Init()
 		}
 		else if ((*it)->GetType() == "ARCBALLCAMERA")
 		{
-			//(*it)->Init(); 
+			(*it)->Init();
 			cout << "arcball cam type found " << "\n";
 		}
 		//if a camera is called MAIN
