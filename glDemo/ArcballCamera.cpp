@@ -17,6 +17,7 @@ void ArcballCamera::calculateDerivedValues() {
 
 	// calculate position vector
 	//cameraPos = glm::vec4(sinf(phi_) * cosf(-theta_) * radius, sinf(-theta_) * radius, cosf(phi_) * cosf(-theta_) * radius, 1.0f);
+	m_pos = glm::vec4(sinf(phi_) * cosf(-theta_) * m_radius, sinf(-theta_) * m_radius, cosf(phi_) * cosf(-theta_) * m_radius, 1.0f); 
 
 	// calculate orientation basis R
 	//R = glm::eulerAngleY(phi_) * glm::eulerAngleX(theta_);
@@ -25,10 +26,10 @@ void ArcballCamera::calculateDerivedValues() {
 	m_viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -m_radius)) * glm::eulerAngleX(-theta_) * glm::eulerAngleY(-phi_);
 	m_projectionMatrix = glm::perspective(glm::radians<float>(m_fovY), m_aspect, m_nearPlane, m_farPlane);
 
-	/*mat4 cameraTransform = g_mainCamera->projectionTransform() * g_mainCamera->viewTransform();
+	mat4 cameraTransform = projectionTransform() * viewTransform();
 
-	mat4 cameraProjection = g_mainCamera->projectionTransform();
-	mat4 cameraView = g_mainCamera->viewTransform() * translate(identity<mat4>(), -g_beastPos);*/
+	mat4 cameraProjection = projectionTransform();
+	mat4 cameraView = viewTransform() * translate(identity<mat4>(), glm::vec3(0, 0, 0));  
 }
 
 
@@ -85,10 +86,10 @@ void ArcballCamera::Init()
 	calculateDerivedValues(); 
 }
 
-/*void ArcballCamera::Tick(float _dt)
+void ArcballCamera::Tick(float _dt)
 {
 	calculateDerivedValues();
-}*/
+}
 
 void ArcballCamera::Load(ifstream& _file)
 {
@@ -107,7 +108,7 @@ void ArcballCamera::Load(ifstream& _file)
 
 	//m_pos.x = -5.0f; m_pos.y = 5.0f; m_pos.z = 0.0f; //might not need, fixed loading errors
 
-	
+	calculateDerivedValues();
 	/*
 	TYPE: ARCBALLCAMERA
 NAME: CAM5ARC

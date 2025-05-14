@@ -52,7 +52,7 @@ public:
 	virtual void Init();  
 
 	//tick for the arcball camera called inside the scene.cpp update
-	//virtual void Tick(float _dt); 
+	virtual void Tick(float _dt); 
 
 	//virtual void SetRenderValues(unsigned int _prog); 
 
