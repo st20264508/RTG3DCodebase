@@ -220,7 +220,7 @@ void renderScene()
 	//Clear the rendering window
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	
-	mat4 cameraTransform = g_mainCamera->projectionTransform() * g_mainCamera->viewTransform(); 
+	/*mat4 cameraTransform = g_mainCamera->projectionTransform() * g_mainCamera->viewTransform();
 
 	mat4 cameraProjection = g_mainCamera->projectionTransform(); 
 	mat4 cameraView = g_mainCamera->viewTransform() * translate(identity<mat4>(), -g_beastPos); 
@@ -314,10 +314,10 @@ void renderScene()
 	}
 	case 2:
 		g_Scene->Render(); //stuff that is loaded in from the manifest file here, edit in the scene or manifest file
-		g_cube->render();
-	}
+		//g_cube->render();
+	}*/
 	
-	//g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
+	g_Scene->Render(); //removed the switch case so it only shows the scene loaded from the manifest file, edited in scene class.
 }
 
 

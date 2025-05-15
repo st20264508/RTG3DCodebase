@@ -26,10 +26,10 @@ private:
 	//glm::mat4			R;
 
 	// view transform matrix for camera's current position and orientation - maps from world to eye coordinate space
-	glm::mat4			m_viewMatrix;
+	//glm::mat4			m_viewMatrix;
 
 	// projection transform matrix
-	glm::mat4			m_projectionMatrix;
+	//glm::mat4			m_projectionMatrix;
 
 
 	//
@@ -38,6 +38,8 @@ private:
 
 	// update position, orientation, view and projection matrices when camera rotation and radius are modified
 	void calculateDerivedValues();
+
+
 
 public:
 
@@ -104,6 +106,7 @@ public:
 
 	glm::mat4 projectionTransform(); // return a const reference the projection transform for the camera.  This is a pass-through method and calls projectionMatrix on the encapsulated ViewFrustum
 
+	void SetRenderValues(unsigned int _prog); 
 	//string m_name; 
 	//string m_type; 
 };

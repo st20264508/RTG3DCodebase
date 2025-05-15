@@ -1,6 +1,7 @@
 
 #include "ArcballCamera.h"
 #include <stringHelp.h>
+#include "helper.h"
 
 using namespace std;
 using namespace glm;
@@ -231,6 +232,25 @@ glm::mat4 ArcballCamera::viewTransform() {
 glm::mat4 ArcballCamera::projectionTransform() {
 
 	return m_projectionMatrix;
+}
+
+void ArcballCamera::SetRenderValues(unsigned int _prog)
+{
+	GLint loc;
+
+	calculateDerivedValues();
+
+	//matrix for the view transform
+	if (Helper::SetUniformLocation(_prog, "viewMatrix", &loc))
+		glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(GetView()));
+
+	//matrix for the projection transform
+	if (Helper::SetUniformLocation(_prog, "projMatrix", &loc))
+		glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(GetProj()));
+
+	//the current camera is at this position
+	if (Helper::SetUniformLocation(_prog, "camPos", &loc))
+		glUniform3fv(loc, 1, glm::value_ptr(GetPos())); 
 }
 
 #pragma endregion

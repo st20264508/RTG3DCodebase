@@ -52,6 +52,7 @@ public:
 	
 	//moves camera based on input 0w 1a 2s 3d
 	void moveCamera(int movekey);  
+	void arcballController(); 
 
 	glm::vec3 campos;
 

@@ -401,6 +401,11 @@ void Scene::moveCamera(int mk)
 	m_useCamera->SetPos(campos); 
 }
 
+void Scene::arcballController()
+{
+	//need to add arcball controls from main into the scene version
+}
+
 
 
 
