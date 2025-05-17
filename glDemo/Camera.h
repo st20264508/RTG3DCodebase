@@ -62,6 +62,12 @@ public:
 	//set up shader values for when using this camera
 	virtual void SetRenderValues(unsigned int _prog);
 
+	//to access arcball scale radius
+	virtual void scaleRadius(float _s);
+
+	//to access arcball rotate camera
+	virtual void rotateCamera(float _dTheta, float _dPhi); 
+
 protected:
 
 	//standard transforms needed to render with this a basic camera

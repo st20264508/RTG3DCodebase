@@ -469,7 +469,7 @@ void cameraController()
 
 void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos) 
 {
-	if (g_mouseDown) {
+	/*if (g_mouseDown) {
 
 		//float tDelta = gameClock->gameTimeDelta();
 
@@ -481,6 +481,20 @@ void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos)
 
 		g_prevMouseX = _xpos;
 		g_prevMouseY = _ypos;
+	}*/
+
+	if (g_mouseDown) { 
+
+		//float tDelta = gameClock->gameTimeDelta();
+
+		float dx = float(_xpos - g_prevMouseX);// *360.0f * tDelta; 
+		float dy = float(_ypos - g_prevMouseY);// *360.0f * tDelta; 
+
+		
+		g_Scene->arcballRotate(-dy, -dx);   
+
+		g_prevMouseX = _xpos; 
+		g_prevMouseY = _ypos; 
 	}
 }
 
@@ -502,12 +516,21 @@ void mouseButtonHandler(GLFWwindow* _window, int _button, int _action, int _mods
 
 void mouseScrollHandler(GLFWwindow* _window, double _xoffset, double _yoffset) {
 
-	if (g_mainCamera)
+	/*if (g_mainCamera)
 	{
 		if (_yoffset < 0.0)
 			g_mainCamera->scaleRadius(1.1f);
 		else if (_yoffset > 0.0)
 			g_mainCamera->scaleRadius(0.9f);
+	}*/
+
+	if (_yoffset < 0.0)
+	{
+		g_Scene->arcballZoom(1.1f);
+	}
+	else if (_yoffset > 0.0)
+	{
+		g_Scene->arcballZoom(0.9f); 
 	}
 }
 

@@ -401,10 +401,24 @@ void Scene::moveCamera(int mk)
 	m_useCamera->SetPos(campos); 
 }
 
-void Scene::arcballController()
+void Scene::arcballZoom(float scaler) 
 {
 	//need to add arcball controls from main into the scene version
+	if (m_useCamera->GetType() == "ARCBALLCAMERA")
+	{
+		m_useCamera->scaleRadius(scaler);  
+	}
 }
+
+void Scene::arcballRotate(float y, float x)
+{
+	if (m_useCamera->GetType() == "ARCBALLCAMERA")
+	{
+		m_useCamera->rotateCamera(y, x); 
+	}
+}
+
+
 
 
 
