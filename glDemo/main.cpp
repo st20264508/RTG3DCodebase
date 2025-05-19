@@ -493,6 +493,8 @@ void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos)
 		
 		g_Scene->arcballRotate(-dy, -dx);   
 
+		g_Scene->rotateCamera(dy, dx);  
+
 		g_prevMouseX = _xpos; 
 		g_prevMouseY = _ypos; 
 	}

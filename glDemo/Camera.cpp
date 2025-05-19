@@ -42,7 +42,7 @@ void Camera::Init()
 /////////////////////////////////////////////////////////////////////////////////////
 void Camera::Tick(float _dt)
 {
-	m_viewMatrix = glm::lookAt(m_pos, m_lookAt, vec3(0, 1, 0));
+	m_viewMatrix = glm::lookAt(m_pos, m_lookAt + vec3(0, 0, -1), vec3(0, 1, 0)); 
 }
 
 void Camera::Load(ifstream& _file)
@@ -83,7 +83,7 @@ void Camera::scaleRadius(float _s)
 
 }
 
-void Camera::rotateCamera(float _dTheta, float _dPhi)
+void Camera::rotateCamera(float x, float y)
 {
 
 }

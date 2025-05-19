@@ -13,6 +13,7 @@ class Light;
 class Model;
 class Texture;
 class Shader;
+class Cube; 
 
 //Note quite a proper scene graph but this contains data structures for all of our bits and pieces we want to draw
 class Scene
@@ -52,12 +53,16 @@ public:
 	
 	//moves camera based on input 0w 1a 2s 3d
 	void moveCamera(int movekey);  
+	void rotateCamera(float y, float x);
 	void arcballZoom(float scaler);  
 	void arcballRotate(float y, float x); 
 
 	glm::vec3 campos;
+	glm::vec3 camrot; 
 
 	int camcycle = 0;   
+
+	Cube* testcube = nullptr; 
 protected:
 
 	//data structures containing pointers to all our stuff
@@ -79,6 +84,7 @@ protected:
 	Camera* m_useCamera = nullptr; //current main camera in use
 	int m_useCameraIndex = 0;
 
+	 
 	
 	//TODO: pass down the same keyboard input from main so that we skip through all the cameras
 };

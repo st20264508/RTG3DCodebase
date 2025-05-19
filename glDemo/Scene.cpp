@@ -10,6 +10,7 @@
 #include "Shader.h"
 #include "GameObjectFactory.h"
 #include <assert.h>
+#include "Cube.h"
 
 
 
@@ -162,6 +163,8 @@ void Scene::Render()
 			(*it)->Render();
 		}
 	}
+
+	testcube->render();  
 
 	//TODO: now do the same for RP_TRANSPARENT here
 }
@@ -350,6 +353,8 @@ void Scene::Init()
 	{
 		(*it)->Init(this);
 	}
+
+	testcube = new Cube();   
 }
 
 void Scene::changeCameraCycle() //works for cycle through cameras (bind set in main), except for the first press ASK IN CLASS
@@ -373,24 +378,35 @@ void Scene::changeCameraCycle() //works for cycle through cameras (bind set in m
 void Scene::moveCamera(int mk)  
 {
 	float speed = 0.1;
+	glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+	glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);  
+
 	campos = m_useCamera->GetPos();    
 	switch (mk)
 	{
-	case 0:
+	case 0: //w
 	{
-		campos.x -= speed;
+		//campos.x -= speed;
+		//campos += speed * cameraFront;
+		campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
-	case 1:
+	case 1://a
 	{
-		campos.z -= speed;
+		//campos.z -= speed;
+		//campos -= speed * cameraFront;
+		campos += speed * cameraFront; 
 	}break;
-	case 2:
+	case 2: //s
 	{
-		campos.x += speed;  
+		//campos.x += speed;  
+		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+		campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
-	case 3:
+	case 3: //d
 	{
-		campos.z += speed;  
+		//campos.z += speed;  
+		//campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;  
+		campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
 	default:
 	{
@@ -400,6 +416,51 @@ void Scene::moveCamera(int mk)
 
 	m_useCamera->SetPos(campos); 
 }
+
+void Scene::rotateCamera(float y, float x)
+{
+	float sensitivity = 0.2f;
+
+	camrot = m_useCamera->GetLookAt(); 
+	
+	camrot.x += x * sensitivity; 
+	camrot.y += y * sensitivity;  
+	camrot.z += (x+y) * sensitivity;   
+	
+	/*float yaw = 0.0; {};
+	float pitch = 0.0;{}; 
+	
+	float xoffset = x - 512.0f / 2;
+	float yoffset = 512.0f / 2 - y;
+	
+	xoffset *= sensitivity;
+	yoffset *= sensitivity; 
+
+	yaw += xoffset; 
+	pitch += yoffset;  
+
+	if (pitch > 89.0f)
+		pitch = 89.0f;
+	if (pitch < -89.0f)
+		pitch = -89.0f;
+
+
+	glm::vec3 direction{};
+	direction.x += cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+	direction.y += sin(glm::radians(pitch));
+	direction.z += sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+
+	
+
+	camrot = glm::normalize(direction); */ 
+
+	cout << camrot.x << "x \n";
+	cout << camrot.y << "y \n";
+	cout << camrot.z << "z \n";
+	m_useCamera->SetLookAt(camrot);     
+}
+
+
 
 void Scene::arcballZoom(float scaler) 
 {
