@@ -164,7 +164,7 @@ void Scene::Render()
 		}
 	}
 
-	testcube->render();  
+	testcube->render();   
 
 	//TODO: now do the same for RP_TRANSPARENT here
 }

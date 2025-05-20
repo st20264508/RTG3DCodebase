@@ -1,6 +1,6 @@
 #include "Cube.h"
-#include "TextureLoader.h"
-#include "Texture.h"
+//#include "TextureLoader.h"
+//#include "Texture.h"
 
 
 using namespace std;
@@ -106,10 +106,10 @@ static float positionArray[] = {
 	*/
 
 	// Right face (Cyan)
-	 -10.0f,  -10.0f, 10.0f, 1.0f,  //16
-	 -10.0f,  -10.0f,  -10.0f, 1.0f,  //17
-	 -10.0f, 10.0f,  -10.0f, 1.0f,  //18
-	 -10.0f, 10.0f, 10.0f, 1.0f,  //19
+	 0.0f,  0.0f, 0.0f, 1.0f,  //16
+	 0.0f,  0.0f,  -10.0f, 1.0f,  //17
+	 0.0f, 10.0f,  -10.0f, 1.0f,  //18
+	 0.0f, 10.0f, 0.0f, 1.0f,  //19
 
 	 /*// Right face (Cyan)
 	 10.0f,  10.0f, -10.0f, 1.0f,  //16
@@ -165,12 +165,12 @@ static float colourArray[] = {
 	1.0f, 0.0f, 1.0f, 1.0f, // Vertex 4*/
 };
 
-static float textureArray[] = {
+/*static float textureArray[] = {
 	1.0f, 1.0f, //top right
 	1.0f, 0.0f, //bottom right
 	0.0f, 0.0f, //bottom left
 	0.0f, 1.0f //top left
-};
+};*/
 
 
 // Line list topology to render principle axes
@@ -191,7 +191,7 @@ Cube::Cube() {
 
 	m_numFaces = 1 * 2;
 	
-	m_texture = loadTexture("Assets\\Textures\\mud.jpg", FIF_JPEG); 
+	//m_texture = loadTexture("Assets\\Textures\\mud.jpg", FIF_JPEG); 
 
 
 	glGenVertexArrays(1, &m_vao);
@@ -214,11 +214,11 @@ Cube::Cube() {
 
 	//https://learnopengl.com/code_viewer_gh.php?code=src/1.getting_started/4.1.textures/textures.cpp //https://learnopengl.com/Getting-started/Textures
 	//setup vbo for texture
-	glGenBuffers(1, &m_textureBuffer); 
+	/*glGenBuffers(1, &m_textureBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, m_textureBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(textureArray), textureArray, GL_STATIC_DRAW); 
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, (const GLvoid*) 0); 
-	glEnableVertexAttribArray(2); 
+	glEnableVertexAttribArray(2); */
 
 
 	// setup vbo for cube) index buffer
@@ -238,16 +238,16 @@ Cube::~Cube() {
 	glDeleteBuffers(1, &m_vertexBuffer);
 	glDeleteBuffers(1, &m_colourBuffer);
 	glDeleteBuffers(1, &m_indexBuffer);
-	glDeleteBuffers(1, &m_textureBuffer);  
+	//glDeleteBuffers(1, &m_textureBuffer);  
 }
 
 
 void Cube::render() 
 {
-	glEnable(GL_TEXTURE_2D); 
+	/*glEnable(GL_TEXTURE_2D);
 
 	glActiveTexture(GL_TEXTURE0); 
-	glBindTexture(GL_TEXTURE_2D, m_texture); 
+	glBindTexture(GL_TEXTURE_2D, m_texture); */ 
 	glBindVertexArray(m_vao);
 	glDrawElements(GL_TRIANGLES, m_numFaces * 3, GL_UNSIGNED_INT, (const GLvoid*)0);
 }
