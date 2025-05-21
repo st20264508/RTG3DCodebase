@@ -378,31 +378,31 @@ void Scene::changeCameraCycle() //works for cycle through cameras (bind set in m
 void Scene::moveCamera(int mk)  
 {
 	float speed = 0.1;
-	glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-	glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);  
+	//glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
+	//glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);  
 
 	campos = m_useCamera->GetPos();    
 	switch (mk)
 	{
-	case 0: //w
+	case 0: //w 0
 	{
 		campos.x -= speed;
 		//campos += speed * cameraFront;
 		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
-	case 1://a
+	case 1://a 1
 	{
 		campos.z -= speed;
 		//campos -= speed * cameraFront;
 		//campos += speed * cameraFront; 
 	}break;
-	case 2: //s
+	case 2: //s 2 
 	{
 		campos.x += speed;  
 		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 		//campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
-	case 3: //d
+	case 3: //d 3
 	{
 		campos.z += speed;   
 		//campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;  

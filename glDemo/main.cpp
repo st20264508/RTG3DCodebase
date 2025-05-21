@@ -14,7 +14,7 @@
 using namespace std;
 using namespace glm;
 
-
+//ST20264508 GDV5001 PORT1
 #pragma region Global variables
 
 GUClock* g_gameClock = nullptr;
@@ -453,19 +453,19 @@ void cameraController()
 {
 	if (wP)
 	{
-		g_Scene->moveCamera(0);
+		g_Scene->moveCamera(1);
 	}
 	if (aP)
 	{
-		g_Scene->moveCamera(1);
+		g_Scene->moveCamera(0);
 	}
 	if (sP)
 	{
-		g_Scene->moveCamera(2); 
+		g_Scene->moveCamera(3); 
 	}
 	if (dP)
 	{ 
-		g_Scene->moveCamera(3);  
+		g_Scene->moveCamera(2);  
 	}
 }
 

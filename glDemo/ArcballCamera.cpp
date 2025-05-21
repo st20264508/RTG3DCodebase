@@ -27,10 +27,11 @@ void ArcballCamera::calculateDerivedValues() {
 	m_viewMatrix = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -m_radius)) * glm::eulerAngleX(-theta_) * glm::eulerAngleY(-phi_);
 	m_projectionMatrix = glm::perspective(glm::radians<float>(m_fovY), m_aspect, m_nearPlane, m_farPlane);
 
+	/*
 	mat4 cameraTransform = projectionTransform() * viewTransform();
 
 	mat4 cameraProjection = projectionTransform();
-	mat4 cameraView = viewTransform() * translate(identity<mat4>(), glm::vec3(0, 0, 0));  
+	mat4 cameraView = viewTransform() * translate(identity<mat4>(), glm::vec3(0, 0, 0));  */
 }
 
 
