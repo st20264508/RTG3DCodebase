@@ -25,7 +25,7 @@ double				g_prevMouseX, g_prevMouseY;
 
 // Global Example objects
 // shouldn't really be anything in here for the final submission
-
+/*
 ArcballCamera* g_mainCamera = nullptr;
 CGPrincipleAxes* g_principleAxes = nullptr;
 Cube* g_cube = nullptr;
@@ -45,7 +45,7 @@ AIMesh* g_duckMesh = nullptr;
 
 
 int g_showing = 0;
-int g_NumExamples = 3;
+int g_NumExamples = 3; */
 
 //Global Game Object
 Scene* g_Scene = nullptr;
@@ -142,7 +142,7 @@ int main()
 	//
 	// Setup the Example Objects
 	//
-
+	/*
 	g_texDirLightShader = setupShaders(string("Assets\\Shaders\\texture-directional.vert"), string("Assets\\Shaders\\texture-directional.frag"));
 	g_flatColourShader = setupShaders(string("Assets\\Shaders\\flatColour.vert"), string("Assets\\Shaders\\flatColour.frag"));
 
@@ -165,7 +165,7 @@ int main()
 	g_duckMesh = new AIMesh(string("Assets\\duck\\rubber_duck_toy_4k.obj")); //added duck here
 	if (g_duckMesh) {
 		g_duckMesh->addTexture(string("Assets\\duck\\rubber_duck_toy_diff_4k.jpg"), FIF_JPEG);
-	}
+	}*/
 	
 
 	//
@@ -344,10 +344,12 @@ void updateScene()
 // Function to call when window resized
 void resizeWindow(GLFWwindow* _window, int _width, int _height)
 {
-	if (g_mainCamera) {
+	/*if (g_mainCamera) {
 
 		g_mainCamera->setAspect((float)_width / (float)_height);
-	}
+	}*/
+
+	
 
 	glViewport(0, 0, _width, _height);		// Draw into entire window
 }
@@ -368,8 +370,8 @@ void keyboardHandler(GLFWwindow* _window, int _key, int _scancode, int _action, 
 
 			case GLFW_KEY_SPACE:
 			{
-				g_showing++;
-				g_showing = g_showing % g_NumExamples;
+				//g_showing++;
+				//g_showing = g_showing % g_NumExamples;
 			}break;
 			case GLFW_KEY_1: 
 			{	//Add here to change the camera
@@ -493,7 +495,7 @@ void mouseMoveHandler(GLFWwindow* _window, double _xpos, double _ypos)
 		
 		g_Scene->arcballRotate(-dy, -dx);   
 
-		g_Scene->rotateCamera(dy, dx);  
+		g_Scene->rotateCamera(-dy, dx);  
 
 		g_prevMouseX = _xpos; 
 		g_prevMouseY = _ypos; 

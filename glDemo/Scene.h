@@ -62,7 +62,7 @@ public:
 
 	int camcycle = 0;   
 
-	Cube* testcube = nullptr; 
+	Cube* floor = nullptr;  
 protected:
 
 	//data structures containing pointers to all our stuff

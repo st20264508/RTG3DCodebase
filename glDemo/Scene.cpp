@@ -164,7 +164,7 @@ void Scene::Render()
 		}
 	}
 
-	testcube->render();   
+	floor->render();   
 
 	//TODO: now do the same for RP_TRANSPARENT here
 }
@@ -354,7 +354,7 @@ void Scene::Init()
 		(*it)->Init(this);
 	}
 
-	testcube = new Cube();   
+	floor = new Cube();    
 }
 
 void Scene::changeCameraCycle() //works for cycle through cameras (bind set in main), except for the first press ASK IN CLASS
@@ -386,27 +386,27 @@ void Scene::moveCamera(int mk)
 	{
 	case 0: //w
 	{
-		//campos.x -= speed;
+		campos.x -= speed;
 		//campos += speed * cameraFront;
-		campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
 	case 1://a
 	{
-		//campos.z -= speed;
+		campos.z -= speed;
 		//campos -= speed * cameraFront;
-		campos += speed * cameraFront; 
+		//campos += speed * cameraFront; 
 	}break;
 	case 2: //s
 	{
-		//campos.x += speed;  
+		campos.x += speed;  
 		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
-		campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+		//campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
 	case 3: //d
 	{
-		//campos.z += speed;  
+		campos.z += speed;   
 		//campos += glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;  
-		campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
+		//campos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * speed;
 	}break;
 	default:
 	{
